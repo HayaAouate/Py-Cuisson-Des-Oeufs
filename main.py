@@ -1,4 +1,13 @@
 import time
+import wave
+import sys
+print(sys.version)
+# import pygame
+
+w = wave.open("C:\\Users\\admin\\OneDrive\\Documents\\support_img_video_son\\son\\clochette_micro_onde.wav", "r")
+frames = w.readframes(w.getnframes())
+#
+
 
 def pointille():
     for i in range(0, 11):
@@ -6,19 +15,27 @@ def pointille():
         print(".", end="", flush=True)
     return ()
 
+
 def cuisson_voulu(temps):
     for min in range(temps, -1, -1):
         for sec in range(50, -1, -10):
             print(f"Temps restant : {min}:{sec}", end="")
             pointille()
             print()
-        print("T")
     return ()
+        # w.close()
+        # pygame.mixer.init()
+        # pygame.mixer.music.load("sample.mp3")
+        # pygame.mixer.music.play()
+
+
+
 def cuisson_en_cours():
-       print("Cuisson en cours : ", end="")
-       pointille()
-       print()
-       return ()
+    print("Cuisson en cours : ", end="")
+    pointille()
+    print()
+    return ()
+
 
 print("Option de cuisson")
 a = "a - Oeuf à la coque : 3min "
@@ -34,7 +51,7 @@ while True:
         try:
             if choix == "a":
                 cuisson_en_cours()
-                cuisson_voulu(3)
+                cuisson_voulu(1)
 
             elif choix == "b":
                 cuisson_en_cours()
@@ -49,6 +66,7 @@ while True:
         print('Veuillez saisir une lettre')
     else:
         print(f"Erreur : veuillez saisir entre a, b ou c ")
+    break
+print("Cuisson terminé")
 
-
-
+# recursion c rappeler la fonction a la fin dune fonction apres un exept pour que ca raffiche
